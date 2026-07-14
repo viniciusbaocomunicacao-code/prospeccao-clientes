@@ -59,6 +59,25 @@ declarados em `src/app/globals.css` dentro de blocos `@theme`.
   `generated/` são geradas por IA (ver `../CLAUDE.md`); as de `team/` e
   `brand/` são reais, extraídas do site original.
 
+## Armadilha de CSS já encontrada (não reintroduzir)
+
+`.grain`/`.grain-light` (textura de ruído em seções escuras/claras,
+`globals.css`) usam `::before` absolutamente posicionado. Já existiu uma
+regra `.grain > *` para garantir que o conteúdo real ficasse acima dessa
+textura — mas ela sequestrava QUALQUER filho direto da seção, inclusive divs
+`absolute inset-0` usadas como camada de imagem de fundo (forçava
+`position:relative` nelas, colapsando a imagem para invisível). O bug ficou
+escondido meses porque as imagens já eram sutis (opacidade baixa) — só ficou
+óbvio quando quebrou o grid da `CredentialBand`. **Não recriar essa regra.**
+Em vez disso, sempre que precisar que um conteúdo fique acima da textura,
+aplicar `relative z-[1]` explicitamente só nesse wrapper (ver `CredentialBand`
+e `FeatureCard` como referência).
+
+Relacionado: se trocar um arquivo em `public/images/` e a mudança não
+aparecer no `next dev`, suspeitar do cache de otimização de imagem do
+Next.js — rodar `rm -rf .next` e reiniciar o dev server antes de assumir que
+o código está errado.
+
 ## Decisões de conteúdo a respeitar
 
 - **Não inventar estatísticas.** O `CredentialBand` na Home mostra fatos reais
