@@ -89,14 +89,12 @@ export const sobre = {
   ],
   team: {
     eyebrow: "Equipe",
-    // Nota: os nomes vêm do site original (página Sobre). O pareamento
-    // nome ↔ foto não estava explícito na página de origem — ordem abaixo
-    // é provisória e deve ser confirmada com o cliente antes de publicar.
+    // Pareamento nome ↔ foto confirmado pelo cliente em 2026-07-14.
     members: [
       {
         name: "Guilherme Datorre",
         role: "Sócio-Fundador",
-        photo: "/images/team/equipe-01.jpg",
+        photo: "/images/team/equipe-02.jpg",
       },
       {
         name: "Edison Brandt",
@@ -106,7 +104,7 @@ export const sobre = {
       {
         name: "Marcelo Bastos",
         role: "Sócio-Fundador",
-        photo: "/images/team/equipe-02.jpg",
+        photo: "/images/team/equipe-01.jpg",
       },
       {
         name: "Lucas Bezerra",
