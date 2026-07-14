@@ -40,6 +40,19 @@ declarados em `src/app/globals.css` dentro de blocos `@theme`.
   levam `grayscale` (+ `contrast-125` nas de fundo) via className — é assim que
   o site absorve fotos com tons quentes (couro/latão) sem quebrar a paleta
   monocromática. Não remover esse filtro ao trocar imagens.
+- **Ícones**: `src/components/Icon.tsx` — biblioteca própria de ícones de
+  linha (stroke, sem preenchimento), mapeados por `IconName`. `FeatureCard`
+  aceita uma prop `icon` opcional; ao adicionar um novo card/item em
+  `content.ts`, incluir um `icon` fazendo sentido semântico (ver os mapeamentos
+  existentes) — não deixar card sem ícone, foi um dos pontos de feedback do
+  cliente (cards "sem ícone, desalinhados").
+- **Animações**: `src/components/Reveal.tsx` (client component, fade+slide via
+  IntersectionObserver, aceita `delayMs` para stagger) — usado em
+  `SectionHeading`, `FeatureCard`, `ProcessSteps` e nos blocos de hero de cada
+  página. O hero da Home usa animação de entrada imediata (classes `hero-in`
+  + `hero-in-delay-{1,2,3}` no CSS) em vez de scroll-reveal, por estar acima
+  da dobra. Tudo respeita `prefers-reduced-motion` (ver `globals.css`) — não
+  adicionar animação que ignore essa media query.
 - **Páginas**: `src/app/{página}/page.tsx` — Home, `/sobre`, `/solucoes`,
   `/estrategia-resultados`, `/contato`.
 - **Imagens**: `public/images/{brand,team,hero,generated}/`. As de
@@ -57,6 +70,12 @@ declarados em `src/app/globals.css` dentro de blocos `@theme`.
   Acompanhamento) são de fato um processo ordenado. Não reaproveitar esse
   padrão numerado para grids de conteúdo paralelo (ex: os 4 pilares da Home
   não são uma sequência, por isso usam `FeatureCard` sem número).
+
+## Repositório
+
+Remoto `origin`: https://github.com/viniciusbaocomunicacao-code/prospeccao-clientes.git
+(branch `main`). Repositório do Vinicius para hospedar sites de prospecção de
+clientes — este projeto Next.js está na raiz do repo.
 
 ## Comandos
 
