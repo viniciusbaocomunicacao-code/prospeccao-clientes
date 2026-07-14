@@ -48,7 +48,7 @@ export default function SobrePage() {
       </section>
 
       <section className="grain-light border-y border-ink/10 bg-fog py-20 md:py-28">
-        <Container>
+        <Container className="relative z-[1]">
           <Eyebrow>{sobre.team.eyebrow}</Eyebrow>
           <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {sobre.team.members.map((member) => (

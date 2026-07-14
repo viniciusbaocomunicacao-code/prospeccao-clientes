@@ -26,34 +26,36 @@ export function FeatureCard({
           : "border-ink/15 bg-fog text-ink hover:border-ink/30"
       }`}
     >
-      {icon && (
-        <div
-          className={`mb-5 flex h-10 w-10 items-center justify-center rounded-full border ${
-            isDark ? "border-white/20 text-paper" : "border-ink/20 text-ink"
-          }`}
-        >
-          <Icon name={icon} className="h-5 w-5" />
-        </div>
-      )}
-      <h3 className="font-display text-lg font-semibold tracking-tight">
-        {title}
-      </h3>
-      {subtitle && (
+      <div className="relative z-[1] flex h-full flex-col">
+        {icon && (
+          <div
+            className={`mb-5 flex h-10 w-10 items-center justify-center rounded-full border ${
+              isDark ? "border-white/20 text-paper" : "border-ink/20 text-ink"
+            }`}
+          >
+            <Icon name={icon} className="h-5 w-5" />
+          </div>
+        )}
+        <h3 className="font-display text-lg font-semibold tracking-tight">
+          {title}
+        </h3>
+        {subtitle && (
+          <p
+            className={`mt-1 font-mono text-[0.68rem] uppercase tracking-wide ${
+              isDark ? "text-haze" : "text-mist"
+            }`}
+          >
+            {subtitle}
+          </p>
+        )}
         <p
-          className={`mt-1 font-mono text-[0.68rem] uppercase tracking-wide ${
-            isDark ? "text-haze" : "text-mist"
+          className={`mt-3 text-sm leading-relaxed ${
+            isDark ? "text-white/60" : "text-mist"
           }`}
         >
-          {subtitle}
+          {description}
         </p>
-      )}
-      <p
-        className={`mt-3 text-sm leading-relaxed ${
-          isDark ? "text-white/60" : "text-mist"
-        }`}
-      >
-        {description}
-      </p>
+      </div>
     </Reveal>
   );
 }

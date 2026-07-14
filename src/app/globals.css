@@ -93,11 +93,6 @@ body {
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/></svg>");
 }
 
-.grain > * {
-  position: relative;
-  z-index: 1;
-}
-
 .grain-light {
   position: relative;
   isolation: isolate;
@@ -114,10 +109,14 @@ body {
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/></svg>");
 }
 
-.grain-light > * {
-  position: relative;
-  z-index: 1;
-}
+/*
+  Nota: propositalmente NÃO existe uma regra ".grain > *" forçando os filhos
+  diretos para position:relative — isso já causou um bug real (quebrava o
+  layout de qualquer div "absolute inset-0" usada como camada de imagem de
+  fundo dentro de uma seção .grain, como no CredentialBand). Cada uso de
+  .grain/.grain-light deve colocar "relative z-[1]" explicitamente no
+  wrapper de conteúdo que precisa ficar acima da textura.
+*/
 
 /*
   Reveal on scroll: aplicado via componente <Reveal>, que adiciona a classe

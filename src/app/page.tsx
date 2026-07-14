@@ -72,8 +72,17 @@ export default function Home() {
         </Container>
       </section>
 
-      <section className="grain bg-graphite py-24 text-paper md:py-28">
-        <Container className="flex flex-col items-start gap-8 md:flex-row md:items-center md:justify-between">
+      <section className="grain relative overflow-hidden bg-graphite py-24 text-paper md:py-28">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/generated/resultados-janela.jpg"
+            alt=""
+            fill
+            className="object-cover object-center opacity-[0.16] grayscale contrast-125"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-graphite/60 via-graphite/85 to-graphite" />
+        </div>
+        <Container className="relative z-[1] flex flex-col items-start gap-8 md:flex-row md:items-center md:justify-between">
           <Reveal className="max-w-xl">
             <Eyebrow tone="onDark">{site.tagline}</Eyebrow>
             <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight leading-[1.1] md:text-4xl">

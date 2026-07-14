@@ -13,7 +13,9 @@ export type IconName =
   | "layers"
   | "users"
   | "zap"
-  | "scale";
+  | "scale"
+  | "link"
+  | "mapPin";
 
 const paths: Record<IconName, React.ReactNode> = {
   trendingUp: (
@@ -117,6 +119,19 @@ const paths: Record<IconName, React.ReactNode> = {
       <line x1="12" y1="21" x2="12" y2="9" />
       <line x1="20" y1="21" x2="20" y2="4" />
       <line x1="2" y1="21" x2="22" y2="21" />
+    </>
+  ),
+  link: (
+    <>
+      <path d="M9.5 14.5 14.5 9.5" />
+      <path d="M11 6.5 13 4.5a3.5 3.5 0 0 1 5 5l-2 2" />
+      <path d="M13 17.5 11 19.5a3.5 3.5 0 0 1-5-5l2-2" />
+    </>
+  ),
+  mapPin: (
+    <>
+      <path d="M12 21s-7-6.2-7-11.3A7 7 0 0 1 19 9.7C19 14.8 12 21 12 21Z" />
+      <circle cx="12" cy="9.5" r="2.3" />
     </>
   ),
 };
